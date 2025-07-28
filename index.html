@@ -12,24 +12,50 @@
       font-family: 'Inter', sans-serif;
       background: linear-gradient(to bottom, #0f0f0f, #1c1c1c);
       color: #ffffff;
-      line-height: 1.6;
+      overflow-x: hidden;
     }
     header {
-      padding: 2rem;
+      padding: 4rem 2rem 2rem;
       text-align: center;
+      animation: fadeIn 2s ease;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 2.75rem;
       margin-bottom: 1rem;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #fff;
+      width: 0;
+      animation: typing 3s steps(30, end) forwards, blink 0.8s infinite step-end alternate;
     }
     header p {
       color: #ccc;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 1rem auto 0;
+      opacity: 0;
+      animation: fadeIn 2s ease 3s forwards;
     }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      from { border-color: transparent; }
+      to { border-color: #fff; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .cta {
       text-align: center;
-      margin: 2rem 0;
+      margin: 3rem 0;
+      opacity: 0;
+      animation: fadeIn 2s ease 4s forwards;
     }
     .cta a {
       padding: 1rem 2rem;
@@ -43,38 +69,72 @@
     .cta a:hover {
       background: #9e7bff;
     }
+
+    .section {
+      padding: 4rem 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeIn 2s ease 4.5s forwards;
+    }
+
     .features {
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 3rem 1rem;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
     }
+
     .feature-box {
       background: #222;
       border-radius: 16px;
       padding: 2rem;
-      margin: 1rem 0;
-      max-width: 600px;
+      flex: 1 1 280px;
       box-shadow: 0 0 10px rgba(127,90,240,0.1);
+      transition: transform 0.3s ease;
     }
+
+    .feature-box:hover {
+      transform: translateY(-5px);
+    }
+
     .feature-box h3 {
       color: #7f5af0;
       margin-bottom: 0.5rem;
     }
+
     .testimonial {
       background: #181818;
-      padding: 2rem 1rem;
       text-align: center;
+      padding: 3rem 1rem;
     }
+
     .testimonial blockquote {
       font-style: italic;
       color: #aaa;
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
+      opacity: 0;
+      animation: fadeIn 2s ease 5s forwards;
     }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 300px;
+      border-radius: 12px;
+      border: 2px solid #333;
+    }
+
     footer {
       text-align: center;
-      padding: 1.5rem;
+      padding: 2rem;
       font-size: 0.875rem;
       color: #666;
     }
@@ -91,18 +151,21 @@
   <a href="#">🌿 Download the App</a>
 </div>
 
-<section class="features">
-  <div class="feature-box">
-    <h3>🧘 Meditation Mode</h3>
-    <p>Relax with guided sessions crafted by professional mindfulness coaches.</p>
-  </div>
-  <div class="feature-box">
-    <h3>📊 Progress Tracking</h3>
-    <p>Monitor your mindfulness journey and stay motivated every day.</p>
-  </div>
-  <div class="feature-box">
-    <h3>🎧 Custom Sounds</h3>
-    <p>Personalize your background audio – from forest ambiance to deep focus tones.</p>
+<section class="section">
+  <h2 style="text-align:center; margin-bottom: 2rem;">Features</h2>
+  <div class="features">
+    <div class="feature-box">
+      <h3>🧘 Meditation Mode</h3>
+      <p>Relax with guided sessions crafted by professional mindfulness coaches.</p>
+    </div>
+    <div class="feature-box">
+      <h3>📊 Progress Tracking</h3>
+      <p>Monitor your mindfulness journey and stay motivated every day.</p>
+    </div>
+    <div class="feature-box">
+      <h3>🎧 Custom Sounds</h3>
+      <p>Personalize your background audio – from forest ambiance to deep focus tones.</p>
+    </div>
   </div>
 </section>
 
@@ -110,6 +173,15 @@
   <blockquote>
     “FocusZen helped me stay centered during stressful times. It's like having peace in my pocket.”
   </blockquote>
+</section>
+
+<section class="section">
+  <h2 style="text-align:center; margin-bottom: 2rem;">Gallery</h2>
+  <div class="gallery">
+    <img src="https://placehold.co/300x200/222/FFF?text=Nature+Scene+1" alt="Nature 1" />
+    <img src="https://placehold.co/300x200/222/FFF?text=Meditation+2" alt="Meditation" />
+    <img src="https://placehold.co/300x200/222/FFF?text=Soundscape+3" alt="Soundscape" />
+  </div>
 </section>
 
 <footer>
